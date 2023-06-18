@@ -12,7 +12,7 @@ router.post('/createuser', async (req, res) => {
       email: 'sanjeev@gmail.com',
       password: 'ajay',
     });
-    console.log(`successfully created a new user`, data);
+    console.log(`successfully created a new user`);
 
     res.json({ success: true, newUserdata: data });
   } catch (error) {
