@@ -2,9 +2,14 @@ const express = require('express');
 const app = express();
 const port = 5000;
 
-//connecting db
+//importing and connecting db
 const mongoDB = require('../backend/db');
-mongoDB();
+// mongoDB();
+
+app.use(express.json());
+
+//importing route
+app.use('/api', require('./Routes/CreateUser'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!!!!ssssssssssssss!!!!!!');
