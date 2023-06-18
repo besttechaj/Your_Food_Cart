@@ -4,7 +4,7 @@ const port = 5000;
 
 //importing and connecting db
 const mongoDB = require('../backend/db');
-// mongoDB();
+mongoDB();
 
 app.use(express.json());
 
