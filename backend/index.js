@@ -6,6 +6,16 @@ const port = 5000;
 const mongoDB = require('../backend/db');
 mongoDB();
 
+//to deal with CORS PROBLEM (cross-Origin resource sharing )
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin,X-Requested-With,Content-Type,Accept'
+  );
+  next();
+});
+
 app.use(express.json());
 
 //importing route
