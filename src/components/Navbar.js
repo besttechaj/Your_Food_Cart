@@ -32,18 +32,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link' to='#'>
-                  Pricing
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link
-                  className='nav-link disabled'
-                  to='#'
-                  tabIndex='-1'
-                  aria-disabled='true'
-                >
-                  Disabled
+                <Link className='nav-link' to='/createuser'>
+                  SignUp
                 </Link>
               </li>
             </ul>
