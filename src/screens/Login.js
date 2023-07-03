@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 const Login = () => {
   const [credentials, setCredentials] = useState({
     email: '',
@@ -40,6 +40,10 @@ const Login = () => {
       if (!serverResponse.success) {
         alert('Please Enter valid credentials');
       } else {
+        //storing the auth token
+        localStorage.setItem('authToken', serverResponse.authToken);
+        //verifying
+        console.log('auth-token is ', localStorage.getItem('authToken'));
         //redirecting the user to its home page
         navigate('/');
       }

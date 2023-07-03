@@ -10,18 +10,21 @@ const mongoDB = async () => {
         console.log(err);
       } else {
         console.log('connection is successfully established');
-        //creating connection with the collection. Display its data
+        //creating connection with the remote collection. Displaying the newly connected collection data
+        //passing the newly remote collection name
         const fetched_data = await mongoose.connection.db.collection(
           'food_items'
-        ); //passing the collection name
-
-        console.log(
-          fetched_data.find({}).toArray(function (err, data) {
-            if (err) console.log(err);
-            //console.log(data);
-            else console.log(data.length);
-          })
         );
+
+        fetched_data.find({}).toArray(function (err, data) {
+          if (err) console.log(err);
+          //console.log(data);
+          else {
+            //By declaring global variable, we can use/update it anywhere in our application
+            global.foodItems = data;
+            console.log(global.foodItems);
+          }
+        });
       }
     }
   );

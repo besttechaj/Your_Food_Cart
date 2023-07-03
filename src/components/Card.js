@@ -4,7 +4,7 @@ const Card = () => {
   return (
     <div>
       <div
-        class='card mt-3 '
+        className='card mt-3 '
         style={{
           width: '18rem',
           maxHeight: '360px',
@@ -14,12 +14,12 @@ const Card = () => {
       >
         <img
           src='https://www.railrecipe.com/images/eatmake/1642686721.webp'
-          class='card-img-top'
+          className='card-img-top'
           alt='...'
         />
-        <div class='card-body'>
-          <h5 class='card-title'>Card title</h5>
-          <p class='card-text'>I am a new cart item</p>
+        <div className='card-body'>
+          <h5 className='card-title'>Card title</h5>
+          <p className='card-text'>I am a new cart item</p>
           <div className='container  w-100' style={{ backgroundColor: 'gray' }}>
             <select className='m-2 h-100  rounded' style={{ color: 'red' }}>
               {/* syntax-> Array.from(OBJECT,MAPfunction define) //return an
