@@ -7,6 +7,11 @@ const Home = () => {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
 
+  const [search, setSearch] = useState([]);
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   //creating an api to get the data from the backend
   const loadData = async () => {
     let response = await fetch('http://localhost:5000/api/foodData', {
@@ -29,7 +34,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <Carousel />
+        <Carousel value={search} handleChange={onChange} />
       </div>
       <div className='container'>
         {foodCat !== []
@@ -42,7 +47,11 @@ const Home = () => {
                   <hr />
                   {foodItem !== [] ? (
                     foodItem
-                      .filter((item) => item.CategoryName === data.CategoryName)
+                      .filter(
+                        (item) =>
+                          item.CategoryName === data.CategoryName &&
+                          item.name.toLowerCase().includes(search.toLowerCase())
+                      )
                       .map((filterItem) => {
                         return (
                           <div

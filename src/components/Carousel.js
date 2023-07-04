@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Carousel = () => {
+const Carousel = (props) => {
+  const { value, handleChange } = props;
   return (
     <>
       <div
@@ -25,17 +26,12 @@ const Carousel = () => {
               <input
                 className='form-control mr-sm-2 '
                 type='search'
+                value={value}
+                onChange={handleChange}
                 placeholder='Search'
                 aria-label='Search'
                 style={{ borderRadius: '10px' }}
               />
-              <button
-                className='btn btn-outline-success my-2 my-sm-0 rounded'
-                type='submit'
-                style={{ backgroundColor: '#5A5A5A', color: 'white' }}
-              >
-                Search
-              </button>
             </form>
           </div>
           <div className='carousel-item active'>
