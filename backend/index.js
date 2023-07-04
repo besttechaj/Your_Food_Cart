@@ -21,8 +21,7 @@ app.use(express.json());
 //importing route related to Users
 app.use('/api', require('./Routes/CreateUser'));
 //importing route related to displaying data
-5min 23sec
-app.use('/api', require('./Routes/displayData'));
+app.use('/api', require('./Routes/DisplayData'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!!!!ssssssssssssss!!!!!!');

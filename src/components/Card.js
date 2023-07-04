@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
+  //destructuring
+  const { food } = props;
+  let options = food.options[0];
+  let priceOptions = Object.keys(options);
   return (
     <div>
       <div
@@ -10,16 +14,13 @@ const Card = () => {
           maxHeight: '360px',
           backgroundColor: 'gray',
           color: 'white',
+          border: '2px solid red',
         }}
       >
-        <img
-          src='https://www.railrecipe.com/images/eatmake/1642686721.webp'
-          className='card-img-top'
-          alt='...'
-        />
+        <img src={food.img} className='card-img-top' alt='...' />
         <div className='card-body'>
-          <h5 className='card-title'>Card title</h5>
-          <p className='card-text'>I am a new cart item</p>
+          <h5 className='card-title'>{food.name}</h5>
+          <p className='card-text'>{food.description}</p>
           <div className='container  w-100' style={{ backgroundColor: 'gray' }}>
             <select className='m-2 h-100  rounded' style={{ color: 'red' }}>
               {/* syntax-> Array.from(OBJECT,MAPfunction define) //return an
@@ -34,8 +35,13 @@ const Card = () => {
             </select>
             {/* Another select for volume */}
             <select className='m-2 h-100  rounded' style={{ color: 'red' }}>
-              <option value='half'>Half</option>
-              <option value='full'>Full</option>
+              {priceOptions.map((data) => {
+                return (
+                  <option key={data} value={data}>
+                    {data}
+                  </option>
+                );
+              })}
             </select>
             <div className='d-inline h-100 fs-5'>$Total Price</div>
           </div>
