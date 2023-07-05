@@ -63,8 +63,11 @@ const Navbar = () => {
               </div>
             ) : (
               <div>
+                <Link className='btn btn-primary mx-2' to='/'>
+                  My Cart
+                </Link>
                 <Link
-                  className='btn btn-primary mx-2'
+                  className='btn btn-danger mx-2'
                   to='/login'
                   onClick={handleLogout}
                 >
