@@ -9,7 +9,7 @@ const Footer = () => {
             to='/'
             className='mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1'
           ></Link>
-          <span className='mb-3 mb-md-0 text-muted'>
+          <span className='mb-3 mb-md-0 text-muted' style={{ color: 'white' }}>
             © 2023 Your_Food_Cart, Inc
           </span>
         </div>

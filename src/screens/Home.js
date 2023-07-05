@@ -41,7 +41,7 @@ const Home = () => {
           ? foodCat.map((data) => {
               return (
                 <div className='row mb-3'>
-                  <div key={data._id} className='fs-3 m-3'>
+                  <div key={data._id} className='fs-5 m-3'>
                     {data.CategoryName}
                   </div>
                   <hr />
@@ -49,14 +49,19 @@ const Home = () => {
                     foodItem
                       .filter(
                         (item) =>
+                          // fetching all the result
                           item.CategoryName === data.CategoryName &&
-                          item.name.toLowerCase().includes(search.toLowerCase())
+                          //fetching result based on search query
+                          item.name.toLowerCase().includes(search)
                       )
                       .map((filterItem) => {
                         return (
                           <div
                             key={filterItem._id}
                             className='col-12 col-md-6 col-lg-3'
+                            style={{
+                              margin: '20px',
+                            }}
                           >
                             <Card food={filterItem} />
                           </div>

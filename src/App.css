@@ -2,3 +2,16 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-color: rgba(6, 6, 6, 0.882);
+  color: white;
+}
+
+/* to hide scroll bar  */
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
