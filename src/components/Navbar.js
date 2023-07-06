@@ -11,7 +11,13 @@ const Navbar = () => {
     <div>
       <nav className='navbar navbar-expand-lg fixed-top navbar-dark bg-dark'>
         <div className='container-fluid'>
-          <Link className='navbar-brand fs-3 fst-italic' to='/'>
+          <Link
+            className='navbar-brand fs-3 fst-italic'
+            style={{
+              fontSize: 'bolder',
+            }}
+            to='/'
+          >
             Your_Food_Cart
           </Link>
           <button
@@ -41,7 +47,7 @@ const Navbar = () => {
               {localStorage.getItem('authToken') ? (
                 <li className='nav-item'>
                   <Link
-                    className='nav-link active fs-5'
+                    className='nav-link active fs-5 '
                     aria-current='page'
                     to='/'
                   >
