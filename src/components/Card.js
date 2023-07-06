@@ -75,7 +75,7 @@ const Card = (props) => {
                   className='m-2   rounded'
                   style={{
                     color: 'white',
-                    backgroundColor: 'green',
+                    backgroundColor: 'red',
                     flexBasis: '10%',
                   }}
                 >
@@ -94,7 +94,7 @@ const Card = (props) => {
                   className='m-2   rounded'
                   style={{
                     color: 'white',
-                    backgroundColor: 'green',
+                    backgroundColor: 'red',
                     flexBasis: '20%',
                   }}
                 >
@@ -107,15 +107,20 @@ const Card = (props) => {
                   })}
                 </select>
                 <div
-                  className='fs-8'
-                  style={{ flexBasis: '70%', paddingLeft: '5px' }}
+                  className='fs-8 rounded'
+                  style={{
+                    flexBasis: '70%',
+                    paddingLeft: '5px',
+                    backgroundColor: 'red',
+                  }}
                 >
                   $Total Price
                 </div>
               </div>
               <button
-                className='btn btn-danger text-center w-100'
+                className='btn btn-primary text-center w-100'
                 onClick={handleAddtoCard}
+                style={{ color: 'white' }}
               >
                 Add Item to cart
               </button>
