@@ -14,7 +14,7 @@ const Card = (props) => {
         className='card mt-1 my-2'
         style={{
           width: '18rem',
-          maxHeight: '350px',
+          maxHeight: '330px',
           backgroundColor: 'green',
           color: 'white',
           display: 'flex',
@@ -30,7 +30,7 @@ const Card = (props) => {
         <div
           className='container card-body'
           style={{
-            height: '222px',
+            height: '190px',
             backgroundColor: 'green',
           }}
         >
