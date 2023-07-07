@@ -54,7 +54,7 @@ const Home = () => {
                           //fetching result based on search query
                           item.name.toLowerCase().includes(search)
                       )
-                      .map((filterItem) => {
+                      .map((filterItem, index) => {
                         return (
                           <div
                             key={filterItem._id}
