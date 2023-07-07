@@ -7,23 +7,45 @@ const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
 //defining reducer logic
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD':
+      return [
+        ...state,
+        {
+          // payload: action.payload,
+          id: action.id,
+          name: action.name,
+          qty: action.qty,
+          size: action.size,
+          price: action.price,
+          img: action.img,
+        },
+      ];
 
-const CartProvider = ({ children }) => {
+    default:
+      console.log('unable to process result');
+      return state;
+  }
+};
+
+export const CartProvider = ({ children }) => {
   //defining reducer: it will take two parameters initial state and reducer logic
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
-    <CartStateContext.Provider value={dispatch}>
-      <CartDispatchContext.Provider value={state}>
+    <CartStateContext.Provider value={state}>
+      <CartDispatchContext.Provider value={dispatch}>
         {children}
       </CartDispatchContext.Provider>
     </CartStateContext.Provider>
   );
 };
 
-export default CartProvider;
-
 //building logic for CONSUMING THE VALUE PROVIDED BY THE PROVIDER ie useContext()
-export const useCart = () => useContext(CartStateContext);
-export const useDispatchCart = () => useContext(CartDispatchContext);
+export const useCart = () => {
+  return useContext(CartStateContext);
+};
+export const useDispatchCart = () => {
+  return useContext(CartDispatchContext);
+};

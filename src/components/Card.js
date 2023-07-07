@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+// import { useCart, useDispatchCart } from './ContextReducer';
+import { useCart } from './ContextReducer';
+import { useDispatchCart } from './ContextReducer';
 
 const Card = (props) => {
+  //getting the state from reducer
+  let data = useCart(); //state
+
   //destructuring
   const { food } = props;
   let options = food.options[0];
   let priceOptions = Object.keys(options);
 
-  const handleAddtoCard = () => {};
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState('');
 
+  const priceRef = useRef();
+
+  useEffect(() => {
+    setSize(priceRef.current.value);
+  }, []);
+
+  //using dispatch to give data to the reducer
+  let dispatch = useDispatchCart();
+  const handleAddtoCard = async () => {
+    //sending the data and dispatch type to the reducer
+    await dispatch({
+      type: 'ADD',
+      // payload: food._id,
+      id: food._id,
+      name: food.name,
+      price: finalPrice,
+      qty: qty,
+      size: size,
+      img: food.img,
+    });
+
+    //checking the response
+    console.log(data);
+  };
+
+  let finalPrice = qty * parseInt(options[size]);
   return (
     <div>
       <div
@@ -78,6 +111,7 @@ const Card = (props) => {
                     backgroundColor: 'red',
                     flexBasis: '10%',
                   }}
+                  onChange={(e) => setQty(e.target.value)}
                 >
                   {/* syntax-> Array.from(OBJECT,MAPfunction          define) //return an 
                         array */}
@@ -97,6 +131,8 @@ const Card = (props) => {
                     backgroundColor: 'red',
                     flexBasis: '20%',
                   }}
+                  onChange={(e) => setSize(e.target.value)}
+                  ref={priceRef}
                 >
                   {priceOptions.map((data) => {
                     return (
@@ -114,7 +150,7 @@ const Card = (props) => {
                     backgroundColor: 'red',
                   }}
                 >
-                  $Total Price
+                  ${finalPrice}/-
                 </div>
               </div>
               <button
